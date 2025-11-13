@@ -3,7 +3,7 @@ import 'package:learning_bloc/todo_app/data/models/todo_model.dart';
 class TodoRepository {
   final List<Todo> _todos = [];
 
-  Future<List<Todo>> fetchTodo() async {
+  Future<List<Todo>> fetchTodos() async {
     await Future.delayed(const Duration(microseconds: 500));
     return List.unmodifiable(_todos);
   }
@@ -18,7 +18,7 @@ class TodoRepository {
     _todos.removeWhere((item) => item.id == id);
   }
 
-  Future<void> toogleTodo(String id) async {
+  Future<void> toggleTodo(String id) async {
     await Future.delayed(const Duration(milliseconds: 500));
     final index = _todos.indexWhere((item) => item.id == id);
     if (index != -1) {
